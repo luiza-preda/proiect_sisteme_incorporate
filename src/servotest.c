@@ -12,12 +12,12 @@ int main(void)
        for(int i=12;i<=25;i++)
        {
         PWM_SetDutyCycle(D9,i);
-        Delay(100);
+        Delay(200);
        }
        for(int i=25;i>=12;i--)
        {
         PWM_SetDutyCycle(D9,i);
-        Delay(100);
+        Delay(200);
        }
         
 
