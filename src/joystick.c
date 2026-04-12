@@ -14,14 +14,21 @@ Reading a value from 0 to 1023 from X axis and seding the signal to the servo, t
 int main(void)
 {
     PWM_Init(D9,50);
+    PWM_Init(D3,50);
     ADC_Init();
     uint16_t first_value;
-    uint8_t duty;
+    uint8_t first_duty;
+    uint16_t second_value;
+    uint8_t second_duty;
 
     while(1)
     {
        first_value=ADC_Read(5);
-       duty=first_value/4;
-       PWM_SetDutyCycle(D9,duty);
+       second_value=ADC_Read(4);
+
+       first_duty=first_value/4;
+       second_duty=second_value/4;
+       PWM_SetDutyCycle(D9,first_duty);
+       PWM_SetDutyCycle(D3,second_duty);
     }
 }
