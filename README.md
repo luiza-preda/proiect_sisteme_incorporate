@@ -34,7 +34,7 @@ Found a bug or you just want to contribute to this project ? Please raise an iss
 - [x] PWM driver
 - [ ] I2C driver
 - [ ] SPI driver
-- [ ] UART driver
+- [x] UART driver
 - [ ] Unit tests
 
 ## Project Structure

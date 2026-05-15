@@ -62,6 +62,17 @@ volatile uint16_t ADC = 0;
 // SREG
 volatile uint8_t SREG = 0;
 
+//USART
+volatile uint8_t UBRR0H = 0; //for the baud rate 
+volatile uint8_t UBRR0L = 0;
+volatile uint8_t UCSR0A =0;
+volatile uint8_t UCSR0B = 0; 
+volatile uint8_t UCSR0C = 0; 
+volatile uint8_t TXB = 0;
+volatile uint8_t RXB =0;
+volatile uint8_t UDR0 =0;
+
+
 // Helper to reset all registers between tests
 void Reset_Registers(void) {
     DDRB = 0; PORTB = 0; PINB = 0;
