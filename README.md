@@ -1,6 +1,6 @@
 # Final project for Embedded Systems Course at University of Craiova, Faculty of Automation, Computers and Electronics, department of Automation and Applied Informatics 
 
-This repository is the final project and is part of the requirements for completing the Embedded System Course. Part of these features are forked form the original repository made by our professor, which is found at:
+This repository is the final project and is part of the requirements for completing the Embedded System Course. Part of these features are forked form the original repository made by our professor, which is found at: [mamuleanu/embedded-systems-course-atmega328p](https://github.com/mamuleanu/embedded-systems-course-atmega328p)
 
 [![Run Tests](https://github.com/mamuleanu/embedded-systems-course-atmega328p/actions/workflows/tests.yml/badge.svg)](https://github.com/mamuleanu/embedded-systems-course-atmega328p/actions/workflows/tests.yml)
 
