@@ -1,10 +1,6 @@
-# Embedded Systems Course and Labs for students from Automation and Applied Informatics from Faculty of Automation, Computers and Electronics, University of Craiova
+# Final project for Embedded Systems Course at University of Craiova, Faculty of Automation, Computers and Electronics, department of Automation and Applied Informatics 
 
-This repository is dedicated to the Embedded Systems course and labs for students from Automation and Applied Informatics from Faculty of Automation, Computers and Electronics, University of Craiova. 
-
-If you are a student: please fork this repository and use it for your labs, homework and course. 
-
-Found a bug or you just want to contribute to this project ? Please raise an issue and/or send a pull request.
+This repository is the final project and is part of the requirements for completing the Embedded System Course. Part of these features are forked form the original repository made by our professor, which is found at:
 
 [![Run Tests](https://github.com/mamuleanu/embedded-systems-course-atmega328p/actions/workflows/tests.yml/badge.svg)](https://github.com/mamuleanu/embedded-systems-course-atmega328p/actions/workflows/tests.yml)
 
@@ -24,6 +20,12 @@ Found a bug or you just want to contribute to this project ? Please raise an iss
 - **Host-Based Unit Testing**: Run unit tests on your computer without hardware using register mocking.
 - **Code Coverage**: Generate HTML reports (`lcov`) to verify test coverage.
 
+## New added features:
+-	Simulating the climate system in an automobile by controlling the speed of a fan for cooling the temperature and rising it by using levels on a one digit 7-segement display and a potentiometer 
+-	Displaying the simulated temperature from the inside on Putty terminal and displaying the outside temperature on a 16x2 LCD using an I2C module 
+-	Warning against excessively low or high temperatures, which raises the issue that the road ahead can become a safety hazard for the vehicle and driving should be proceed with caution 
+
+
 ## Roadmap
 
 - [x] GPIO driver
@@ -32,10 +34,12 @@ Found a bug or you just want to contribute to this project ? Please raise an iss
 - [x] Interrupt driver
 - [x] Timer driver
 - [x] PWM driver
-- [ ] I2C driver
+- [x] I2C driver
 - [ ] SPI driver
 - [x] UART driver
 - [ ] Unit tests
+- [x] LCD driver
+
 
 ## Project Structure
 
