@@ -106,7 +106,7 @@ void display_digit(int d)
         GPIO_Write(D4,GPIO_HIGH);//c
         GPIO_Write(D5,GPIO_HIGH);//d
         GPIO_Write(D8,GPIO_HIGH);//f
-        GPIO_Write(D12,GPIO_HIGH);//g
+        GPIO_Write(D12,GPIO_HIGH);//g.
         break;
     }
 }
