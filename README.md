@@ -15,6 +15,8 @@ This repository is the final project and is part of the requirements for complet
     - **EEPROM**: Read, Write, Update (lifespan-aware).
     - **ADC**: Blocking 10-bit Analog-to-Digital conversion.
     - **PWM**: High-level wrapper for Timer1 (16-bit) and Timer2 (8-bit) PWM generation.
+    - **USART**: Asynchronous operation using polling and dinamic frame format.
+    - **I2C** : Start, Write, Stop for Master-Slave operations
 - **Board Support Package (BSP)**: Pin mappings for **Arduino Nano** and **Uno**.
 - **Robust Build System**: `Makefile` for compilation, flashing, and testing.
 - **Host-Based Unit Testing**: Run unit tests on your computer without hardware using register mocking.
@@ -54,6 +56,7 @@ This repository is the final project and is part of the requirements for complet
 │   ├── gpio/
 │   ├── interrupt/
 |   ├── i2c/
+|   ├── usart/
 |   ├── lcd/
 │   └── timer/
 ├── src/            # Application source code (main.c) and all the files for testing different components used and the final code of this project(cod_final.c)
