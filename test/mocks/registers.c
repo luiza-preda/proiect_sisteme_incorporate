@@ -72,6 +72,14 @@ volatile uint8_t TXB = 0;
 volatile uint8_t RXB =0;
 volatile uint8_t UDR0 =0;
 
+//I2C
+volatile uint8_t TWSR = 0;
+volatile uint8_t TWBR = 0;
+volatile uint8_t TWCR = 0;
+volatile uint8_t TWDR = 0;
+
+
+
 
 // Helper to reset all registers between tests
 void Reset_Registers(void) {
