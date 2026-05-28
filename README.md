@@ -23,7 +23,7 @@ This repository is the final project and is part of the requirements for complet
 - **Host-Based Unit Testing**: Run unit tests on your computer without hardware using register mocking.
 - **Code Coverage**: Generate HTML reports (`lcov`) to verify test coverage.
 
-## Functionality of the project:
+## Functionality of the Project:
 -	Simulating the climate system in an automobile by controlling the speed of a fan for cooling the temperature using a joystick and rising it by using levels on a single digit 7-segement display and a potentiometer
 -	The temperature inside, that is physically induced by a potentiometer for better results, is influenced by the speed of the fan, the level of heat and also the temperature outside
 -	Displaying the simulated temperature from the inside of the car on a 16x2 LCD using an I2C module
@@ -142,14 +142,138 @@ int pwm_example(void) {
     return 0;
 }
 ```
-##Brief Hardware Components Analysis 
-•	Tow 10	K potentiometers for sensors replacement and one 10K potentiometer for the heat levels 
-•	An active buzzer for the alarm 
-•	One seven-segment display which will display the 9 levels of heat of the system 
-•	A 3,3 V DC motor, a l298n motor driver and 9V external power supply for the fan
-•	An I2C module and a 16 X 2 LCD for displaying the inside temperature
-•	One Arduino Nano board 
-•	Jumpers of different sizes 
+## Brief Hardware Components Analysis 
+1.	Tow 10	K potentiometers for sensors replacement and one 10K potentiometer for the heat levels 
+2.	An active buzzer for the alarm
+3.	One seven-segment display which will display the 9 levels of heat of the system
+4.	A 3,3 V DC motor, a l298n motor driver and 9V external power supply for the fan
+5.	An I2C module and a 16 X 2 LCD for displaying the inside temperature
+6.	One Arduino Nano board 
+7.	Jumpers of different sizes
 
 
 
+
+## Code Architecture (**final_code.c**)
+1.	Function to clear all the segments of the single display 
+2.	Function to display a digit by mapping the segments from the data sheet 
+3.	Function to display the digit by controlling the value of a potentiometer 
+4.	Function to show the temperature on the 16 X 2 display 
+5.	Function to change the sound of the buzzer 
+6.	In main function is implemented the rest of the code, like the equation to calculate the temperature showed on the display, which is influenced by factors such as the outside temperature
+
+
+## Graphical Interface Using Python 
+### Reading the values using USART and implementing an interface in Python 
+-	Used pyserial to access and used the values sent on USB port 
+-	Used threading to allow the program to run in parallel more threads 
+-	Used customtkinter for more styling themes and options for the design
+
+### Code fragmenents 
+```python 
+
+#CARD TEMPERATURA EXTERIOR
+
+outside_frame = ctk.CTkFrame(main_frame, corner_radius=20)
+outside_frame.place(relx=0.55, rely=0.1, relwidth=0.4, relheight=0.35)
+
+outside_title = ctk.CTkLabel(
+    outside_frame,
+    text="Temperatura Exterior",
+    font=("Arial", 20, "bold")
+)
+outside_title.pack(pady=15)
+
+outside_value = ctk.CTkLabel(
+    outside_frame,
+    text="-- °C",
+    font=("Arial", 42, "bold"),
+    text_color="orange"
+)
+outside_value.pack(pady=10)
+```
+
+```python
+# CITIRE SERIAL
+
+def serial_read():
+
+    while True:
+
+        try:
+            line = ser.readline().decode(errors='ignore').strip()
+
+            print("DATE:", line)
+
+
+
+            if "Temperatura afara:" in line:
+
+                values = line.split()
+
+                outside_temp = int(values[2])
+                inside_temp = int(values[6])
+
+
+                # UPDATE INTERFATA
+
+                inside_value.configure(
+                    text=f"{inside_temp} °C"
+                )
+
+                outside_value.configure(
+                    text=f"{outside_temp} °C"
+                )
+
+
+                # COLORARE DINAMICA
+
+                if inside_temp > 30:
+                    inside_value.configure(text_color="red")
+                else:
+                    inside_value.configure(text_color="cyan")
+
+                if outside_temp > 45:
+                    outside_value.configure(text_color="red")
+
+                elif outside_temp < 4:
+                    outside_value.configure(text_color="blue")
+
+                else:
+                    outside_value.configure(text_color="orange")
+
+
+                # STATUS
+
+                update_status(outside_temp)
+
+        except Exception as e:
+            print("EROARE:", e)
+
+```
+
+### Some Examples
+
+#### When the temperature outside is above 45 degrees Celsius
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dd4dcfe1-e4d8-4351-925f-50700ac70f71"
+       width="500"
+       alt="Screenshot" />
+</p>
+
+#### When the temperature outside is between 5 and 44 degrees 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fa3940f4-4767-4e86-bedd-f0aabdc013c2"
+       width="500"
+       alt="Screenshot" />
+</p>
+
+##### When the temperature outside is below 4 degrees Celsius 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/505a9472-411e-436f-bf98-049c6c6b6a6c"
+       width="500"
+       alt="Screenshot" />
+</p>
