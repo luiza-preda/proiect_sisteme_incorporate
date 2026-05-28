@@ -70,6 +70,12 @@ extern volatile uint8_t TXB;
 extern volatile uint8_t RXB;
 extern volatile uint8_t UDR0;
 
+//I2C
+extern volatile uint8_t TWSR;
+extern volatile uint8_t TWBR;
+extern volatile uint8_t TWCR;
+extern volatile uint8_t TWDR;
+
 // Bit Definitions (Common AVR ones needed for logic)
 // GPIO
 #define PORTB0 0
@@ -142,6 +148,12 @@ extern volatile uint8_t UDR0;
 #define UCSZ00 1
 #define UDRE0 5
 #define RXC0 7
+
+//I2C
+#define TWEN 2
+#define TWINT 7
+#define TWSTA 5
+#define TWSTO 4
 
 
 // Register Bits

@@ -7,8 +7,8 @@ F_CPU = 16000000UL
 # Programmer Settings
 PROGRAMMER = arduino
 PORT = COM4
-#BAUD = 57600
-BAUD = 115200
+BAUD = 57600
+#BAUD = 115200
 
 # Board Selection (default to nano)
 BOARD ?= nano
@@ -35,7 +35,7 @@ else
 endif
 
 # Source Files
-SRC = src/testuart.c drivers/gpio/gpio.c drivers/interrupt/external_interrupt.c drivers/timer/timer0.c drivers/timer/timer1.c drivers/timer/timer2.c drivers/pwm/pwm.c drivers/eeprom/eeprom.c drivers/adc/adc.c utils/delay.c drivers/usart/usart.c 
+SRC = src/cod_final.c drivers/gpio/gpio.c drivers/interrupt/external_interrupt.c drivers/timer/timer0.c drivers/timer/timer1.c drivers/timer/timer2.c drivers/pwm/pwm.c drivers/eeprom/eeprom.c drivers/adc/adc.c utils/delay.c drivers/usart/usart.c drivers/i2c/i2c.c drivers/lcd/lcd.c 
 
 # Object Files
 # Replace .c extension with .o and prepend OBJDIR, keeping directory structure
