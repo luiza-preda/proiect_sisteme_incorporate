@@ -174,7 +174,7 @@ void afisare_temp(uint16_t valoare)
     LCD_Print(buf);
 
 }
-void buzzer_beep(uint16_t on_time, uint16_t off_time, uint8_t repeat)
+void buzzer_sound(uint16_t on_time, uint16_t off_time, uint8_t repeat)
 {
     for(uint8_t i=0; i<repeat; i++)
     {
@@ -246,7 +246,7 @@ int main(void)
     sprintf(buffer1, "Temperatura ridicata!\n");
     USART_Transmit((uint8_t*)buffer1 ,strlen(buffer1));
 
-    buzzer_beep(100,100,5);
+    buzzer_sound(100,100,5);
     }
 
     
@@ -255,7 +255,7 @@ int main(void)
     sprintf(buffer1, "Temperatura scazuta!\n");
     USART_Transmit((uint8_t*)buffer1 ,strlen(buffer1));
 
-    buzzer_beep(400,400,2);
+    buzzer_sound(400,400,2);
     }
 
 
@@ -264,14 +264,14 @@ int main(void)
     GPIO_Write(D3, GPIO_LOW);
     }
 
-    inside_temeperature =  (temp_inside/10) - (val1/100) + (valoare/100) ;
+    inside_temeperature =  (temp_inside/10) - (val1/100) + (valoare/100) + 0.1*(temp_outside/10);
     
    
             afisare_temp((uint16_t)inside_temeperature);  
             sprintf(buffer,"Temperatura afara: %d - Temperatura inauntru: %d si val_senzor_temp: %d\n", temp_outside/10, inside_temeperature, temp_inside/10);
             USART_Transmit((uint8_t*)buffer ,strlen(buffer));
            
-           //Delay(100);
+           
  
         
   
