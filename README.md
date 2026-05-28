@@ -142,5 +142,14 @@ int pwm_example(void) {
     return 0;
 }
 ```
+##Brief Hardware Components Analysis 
+•	Tow 10	K potentiometers for sensors replacement and one 10K potentiometer for the heat levels 
+•	An active buzzer for the alarm 
+•	One seven-segment display which will display the 9 levels of heat of the system 
+•	A 3,3 V DC motor, a l298n motor driver and 9V external power supply for the fan
+•	An I2C module and a 16 X 2 LCD for displaying the inside temperature
+•	One Arduino Nano board 
+•	Jumpers of different sizes 
+
 
 
