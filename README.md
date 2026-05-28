@@ -20,10 +20,13 @@ This repository is the final project and is part of the requirements for complet
 - **Host-Based Unit Testing**: Run unit tests on your computer without hardware using register mocking.
 - **Code Coverage**: Generate HTML reports (`lcov`) to verify test coverage.
 
-## New added features:
--	Simulating the climate system in an automobile by controlling the speed of a fan for cooling the temperature and rising it by using levels on a one digit 7-segement display and a potentiometer 
--	Displaying the simulated temperature from the inside on Putty terminal and displaying the outside temperature on a 16x2 LCD using an I2C module 
--	Warning against excessively low or high temperatures, which raises the issue that the road ahead can become a safety hazard for the vehicle and driving should be proceed with caution 
+## Functionality of the project:
+-	Simulating the climate system in an automobile by controlling the speed of a fan for cooling the temperature using a joystick and rising it by using levels on a single digit 7-segement display and a potentiometer
+-	The temperature inside, that is physically induced by a potentiometer for better results, is influenced by the speed of the fan, the level of heat and also the temperature outside
+-	Displaying the simulated temperature from the inside of the car on a 16x2 LCD using an I2C module
+-	Implementing a graphical interface using Python (source code for this is not included entirely in the project, but il will be explained latter on)
+-	The graphical interface shows the temperature on the inside, the temperature on the outside and the status of the system 
+-	Warning against excessively low or high temperatures, which raises the issue that the road ahead can become a safety hazard for the vehicle and driving should be proceed with caution. The message is included on the interface
 
 
 ## Roadmap
@@ -50,8 +53,10 @@ This repository is the final project and is part of the requirements for complet
 │   ├── eeprom/
 │   ├── gpio/
 │   ├── interrupt/
+|   ├── i2c/
+|   ├── lcd/
 │   └── timer/
-├── src/            # Application source code (main.c)
+├── src/            # Application source code (main.c) and all the files for testing different components used and the final code of this project(cod_final.c)
 ├── test/           # Unit tests & Mocks
 │   ├── mocks/      # Mock AVR registers for host testing
 │   ├── framework/  # Minimal test runner
@@ -133,4 +138,5 @@ int pwm_example(void) {
     return 0;
 }
 ```
+
 
