@@ -16,7 +16,8 @@ This repository is the final project and is part of the requirements for complet
     - **ADC**: Blocking 10-bit Analog-to-Digital conversion.
     - **PWM**: High-level wrapper for Timer1 (16-bit) and Timer2 (8-bit) PWM generation.
     - **USART**: Asynchronous operation using polling and dinamic frame format.
-    - **I2C** : Start, Write, Stop for Master-Slave operations
+    - **I2C** : Start, Write, Stop for Master-Slave operations.
+    - **LCD** : 4-bit mode, 2 lines.
 - **Board Support Package (BSP)**: Pin mappings for **Arduino Nano** and **Uno**.
 - **Robust Build System**: `Makefile` for compilation, flashing, and testing.
 - **Host-Based Unit Testing**: Run unit tests on your computer without hardware using register mocking.
